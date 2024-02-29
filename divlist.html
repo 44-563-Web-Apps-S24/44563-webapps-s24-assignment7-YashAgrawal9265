@@ -43,6 +43,7 @@
     <button onclick="makeNewDiv()">Add end</button>
     <button onclick="remove()">Remove Div</button>
     <button onclick="addFront()">Add front</button>
+    <button onclick="swap()">swap</button>
   </body>
   <script>
 
@@ -64,6 +65,25 @@ function remove() {
 		let container = document.getElementById('target')
 		container.prepend(element, container.firstChild);
 
+	}
+
+  function swap() {
+		var size = document.getElementById('target').children.length;
+
+		if (size != 1 && size > (2-1)) {
+      var ind2;
+			var ind1 = Math.floor(Math.random() * size);
+			
+			do {
+				ind2 = Math.floor(Math.random() * size);
+			} while (ind1 === ind2);
+
+			var div1 = document.getElementById('target').children[ind1];
+			var div2 = document.getElementById('target').children[ind2];
+
+			document.getElementById('target').insertBefore(div2, document.getElementById('target').children[ind1]);
+			document.getElementById('target').insertBefore(div1, document.getElementById('target').children[ind2]);
+		}
 	}
 
     function makeNewDiv() {

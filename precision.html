@@ -28,33 +28,41 @@
 
     <script>
       let stopTime = undefined;
-
+      let startTimer = undefined;
+      let RandCount = 0;
       function startTime() {
+        startTimer = Date.now();
         let counter_ele = document.getElementById("counter");
         let target_ele = document.getElementById("target");
-        for (let ind = 0; ind < 5; ++ind) {
-          (function (index) {
+        RandCount = Math.floor(Math.random() *(8)) + (2);
+        for (let i = 0; i < RandCount; ++i) {
+          (function (ind) {
             setTimeout(() => {
-              counter_ele.innerHTML = index;
-            }, (4 - index) * 1000);
-          })(ind);
+              counter_ele.innerHTML = ind;
+            }, (RandCount - ind) * 1000);
+          })(i);
         }
+        setTimeout(() => {
+          if (stopTime == undefined) {
+            document.getElementById("target").innerHTML = "Too Slow";
+          } else {
+            console.log("hello");
+            var diff_tim = stopTime - startTimer;
+            document.getElementById("target").innerHTML =
+              " Time was " + " " + Math.abs(diff_tim) + " " + " milliseconds ";
+          }
+        }, RandCount*1000);
       }
-
-      setTimeout(function () {
-        if (stopTime != undefined) {
-            let elapsedTime = stopTime - Date.now();
-          document.getElementById("target").innerHTML =
-            " Time was  " + Math.abs(elapsedTime) + " milliseconds ";
-        } else {
-          document.getElementById("target").innerHTML = "Too Slow";
-        }
-      }, 4000);
 
       function recordTime() {
         stopTime = Date.now();
         console.log(stopTime);
       }
+
+      
+      
+
+      
     </script>
   </body>
 </html>
