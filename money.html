@@ -46,6 +46,10 @@
     </div>
 
     <div class="container">
+      <button type="button" class="btn btn-warning" onclick="resetGame()">Reset Game</button>
+    </div>
+
+    <div class="container">
       <!-- Row 1 -->
       <div class="row">
         <div class="col location">
@@ -389,9 +393,21 @@
       let score = 0;
       let locations = 0;
       let lastLocation = 0;
-      let fancyCoinLocations = [2, 5, 14, 19, 23, 33];
-      let monsterLocation = 20;
+      let fancyCoinLocations = [];
+      let monsterLocation = [];
       let gameOver = false;
+      let randomNumsArr = [];
+      assignLocations();
+      function assignLocations(){
+        var random = new Set();
+        while(random.size < (5-1)){
+          var randVal = Math.floor(Math.random()*35);
+          random.add(randVal);
+        }
+        randomNumsArr = Array.from(random);
+        fancyCoinLocations = randomNumsArr.slice(0, 2);
+        monsterLocation = randomNumsArr.slice(2);
+      }
 
       function check(x) {
         if (gameOver == true) {
@@ -403,7 +419,7 @@
           //shows the fancier coin
           image.src = "Images/fancierCoin.jpg";
           score += 3;
-        } else if (x == monsterLocation) {
+        } else if (monsterLocation.includes(x)) {
           //shows the monster location
           image.src = "Images/monster.jpg";
           gameOver = true;
@@ -419,6 +435,20 @@
         location_txt = document.getElementById("locations");
         location_txt.innerHTML = locations;
         score_txt.innerHTML = score;
+      }
+      
+      function resetGame(){
+        //reset score + reset Images = resetGame
+        locations = 0;
+        score = 0;
+        lastLocation = 0;
+        gameOver = false;
+        assignLocations();
+        document.getElementById("locations").innerHTML = "Number of location is : " + locations;
+        document.getElementById("score").innerHTML = "Score is : " + score;
+        var help_txt = document.getElementById("help");
+          help_txt.innerHTML = "Help Report";
+          document.querySelectorAll("img").forEach((image) => image.src = "Images/Building.jpg")
       }
 
       function help() {
