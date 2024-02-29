@@ -1,164 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Coins</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Coins</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
     .location {
       border: 1px solid #ccc;
       padding: 5px;
     }
+
     .location img {
       max-width: 100%;
       height: auto;
     }
+
+    #score {
+      background-color: burlywood;
+    }
+
+    #help {
+      background-color: aqua;
+    }
+
+    #locations {
+      background-color: bisque;
+    }
   </style>
-<body>
 
-<div class="container">
-  <h1>Find the coins by Yash Jagdishkumar Agrawal</h1>
-  <p>Click on the locations to find coins, beware the monster</p>
-  <p id="locations">Number of locations checked is zero.</p>
-  <p id="score">Score is zero.</p>
-  <p>Click for help.</p>
-  <p id="help">Help report</p>
-</div>
+  <body>
+    <div class="container">
+      <h1>Find the coins by Yash Jagdishkumar Agrawal</h1>
+      <p>Click on the locations to find coins, beware the monster</p>
+      <p id="locations">Number of locations checked is zero.</p>
+      <p id="score">Score is zero.</p>
+      <p onclick="help()">Click for help.</p>
+      <p id="help">Help report</p>
+    </div>
 
-<div class="container">
-    <!-- Row 1 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
+    <div class="container">
+      <!-- Row 1 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image0"
+            onclick="check(0)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image1"
+            onclick="check(1)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image2"
+            onclick="check(2)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image3"
+            onclick="check(3)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image4"
+            onclick="check(4)"
+            alt="Building"
+          />
+        </div>
       </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
+      <!-- Row 2 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image5"
+            onclick="check(5)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image6"
+            onclick="check(6)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image7"
+            onclick="check(7)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image8"
+            onclick="check(8)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image9"
+            onclick="check(9)"
+            alt="Building"
+          />
+        </div>
       </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
+      <!-- Row 3 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image10"
+            onclick="check(10)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image11"
+            onclick="check(11)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image12"
+            onclick="check(12)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image13"
+            onclick="check(13)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image14"
+            onclick="check(14)"
+            alt="Building"
+          />
+        </div>
       </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
+      <!-- Row 4 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image15"
+            onclick="check(15)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image16"
+            onclick="check(16)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image17"
+            onclick="check(17)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image18"
+            onclick="check(18)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image19"
+            onclick="check(19)"
+            alt="Building"
+          />
+        </div>
       </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
+      <!-- Row 5 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image20"
+            onclick="check(20)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image21"
+            onclick="check(21)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image22"
+            onclick="check(22)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image23"
+            onclick="check(23)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image24"
+            onclick="check(24)"
+            alt="Building"
+          />
+        </div>
+      </div>
+      <!-- Row 6 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image25"
+            onclick="check(25)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image26"
+            onclick="check(26)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image27"
+            onclick="check(27)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image28"
+            onclick="check(28)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image29"
+            onclick="check(29)"
+            alt="Building"
+          />
+        </div>
+      </div>
+      <!-- Row 7 -->
+      <div class="row">
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image30"
+            onclick="check(30)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image31"
+            onclick="check(31)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image32"
+            onclick="check(32)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image33"
+            onclick="check(33)"
+            alt="Building"
+          />
+        </div>
+        <div class="col location">
+          <img
+            src="Images/building.jpg"
+            id="image34"
+            onclick="check(34)"
+            alt="Building"
+          />
+        </div>
       </div>
     </div>
-    <!-- Row 2 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-    </div>
-    <!-- Row 3 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-    </div>
-    <!-- Row 4 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-    </div>
-    <!-- Row 5 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-    </div>
-    <!-- Row 6 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-    </div>
-    <!-- Row 7 -->
-    <div class="row">
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-      <div class="col location">
-        <img src="Images/building.jpg" alt="Building" >
-      </div>
-    </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
-  integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-</body>
+    <script>
+      let ids = [
+        "image0",
+        "image1",
+        "image2",
+        "image3",
+        "image4",
+        "image5",
+        "image6",
+        "image7",
+        "image8",
+        "image9",
+        "image10",
+        "image11",
+        "image12",
+        "image13",
+        "image14",
+        "image15",
+        "image16",
+        "image17",
+        "image18",
+        "image19",
+        "image20",
+        "image21",
+        "image22",
+        "image23",
+        "image24",
+        "image25",
+        "image26",
+        "image27",
+        "image28",
+        "image29",
+        "image30",
+        "image31",
+        "image32",
+        "image33",
+        "image34",
+      ];
+      let score = 0;
+      let locations = 0;
+      let lastLocation = 0;
+      let fancyCoinLocations = [2, 5, 14, 19, 23, 33];
+      let monsterLocation = 20;
+      let gameOver = false;
+
+      function check(x) {
+        if (gameOver == true) {
+          return;
+        }
+        id = ids[x];
+        image = document.getElementById(id);
+        if (fancyCoinLocations.includes(x)) {
+          //shows the fancier coin
+          image.src = "Images/fancierCoin.jpg";
+          score += 3;
+        } else if (x == monsterLocation) {
+          //shows the monster location
+          image.src = "Images/monster.jpg";
+          gameOver = true;
+          score -= 5;
+        } else {
+          // shows the simple coin
+          image.src = "Images/coin.jpg";
+          score += 1;
+        }
+        ++locations;
+        lastLocation = x;
+        score_txt = document.getElementById("score");
+        location_txt = document.getElementById("locations");
+        location_txt.innerHTML = locations;
+        score_txt.innerHTML = score;
+      }
+
+      function help() {
+        let result = ["So close", "Grrr", "All clear"];
+        help_txt = document.getElementById("help");
+        let kinshipArr = [
+          lastLocation + 1,
+          lastLocation - 1,
+          lastLocation + 5,
+          lastLocation - 5,
+        ];
+        let grr_locations = [
+          monsterLocation + 1,
+          monsterLocation - 5,
+          monsterLocation + 5,
+        ];
+        if (
+          kinshipArr.some((element) => fancyCoinLocations.includes(element))
+        ) {
+          help_txt.innerHTML = result[0];
+        } else if (grr_locations.includes(lastLocation) == true) {
+          help_txt.innerHTML = result[1];
+        } else {
+          help_txt.innerHTML = result[2];
+        }
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

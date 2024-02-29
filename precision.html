@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Timeout Zone Gone</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h2>Yash Jagdishkumar Agrawal Speed Check</h2>
+
+    <div id="target">Your Time</div>
+    <div id="counter">Count</div>
+
+    <button type="button" class="btn btn-warning" onclick="startTime()">
+      Start Timer
+    </button>
+
+    <button type="button" class="btn btn-warning" onclick="recordTime()">
+      Stop Timer
+    </button>
+
+    <script>
+      let stopTime = undefined;
+
+      function startTime() {
+        let counter_ele = document.getElementById("counter");
+        let target_ele = document.getElementById("target");
+        for (let ind = 0; ind < 5; ++ind) {
+          (function (index) {
+            setTimeout(() => {
+              counter_ele.innerHTML = index;
+            }, (4 - index) * 1000);
+          })(ind);
+        }
+      }
+
+      setTimeout(function () {
+        if (stopTime != undefined) {
+            let elapsedTime = stopTime - Date.now();
+          document.getElementById("target").innerHTML =
+            " Time was  " + Math.abs(elapsedTime) + " milliseconds ";
+        } else {
+          document.getElementById("target").innerHTML = "Too Slow";
+        }
+      }, 4000);
+
+      function recordTime() {
+        stopTime = Date.now();
+        console.log(stopTime);
+      }
+    </script>
+  </body>
+</html>
